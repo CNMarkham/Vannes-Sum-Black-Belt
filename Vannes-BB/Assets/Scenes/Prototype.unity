@@ -2710,15 +2710,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878340913}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07097517, y: 0, z: 0, w: 0.9974781}
-  m_LocalPosition: {x: -7.796, y: 4.301, z: 2.41}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.393, y: 4.382, z: 2.41}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2139562262}
   - {fileID: 1399209939}
+  - {fileID: 2139562262}
+  - {fileID: 1137401507}
+  - {fileID: 990388488}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 8.14, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &878340916
 Rigidbody2D:
   serializedVersion: 4
@@ -2732,8 +2734,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: e420f485a896ba049857fb0425ea5de3, type: 2}
   m_IncludeLayers:
@@ -2762,6 +2764,11 @@ MonoBehaviour:
   pushForce: 7
   bottomRight: {fileID: 2139562262}
   bottomLeft: {fileID: 1399209939}
+  corners:
+  - {fileID: 2139562262}
+  - {fileID: 1399209939}
+  - {fileID: 990388488}
+  - {fileID: 1137401507}
 --- !u!61 &878340918
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3197,6 +3204,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &990388487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 990388488}
+  m_Layer: 0
+  m_Name: RotatePosition 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &990388488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990388487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9318, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 878340915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013550852
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4384,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1137401506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137401507}
+  m_Layer: 0
+  m_Name: RotatePosition 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137401507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137401506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9408, y: 1.024, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 878340915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160454794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5743,7 +5812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399209939}
   m_Layer: 0
-  m_Name: RotatePosition (1)
+  m_Name: RotatePosition 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5758,7 +5827,7 @@ Transform:
   m_GameObject: {fileID: 1399209938}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.91, y: -0.76, z: 0}
+  m_LocalPosition: {x: -0.932, y: -0.754, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8159,7 +8228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2139562262}
   m_Layer: 0
-  m_Name: RotatePosition
+  m_Name: RotatePosition 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8174,7 +8243,7 @@ Transform:
   m_GameObject: {fileID: 2139562261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: -0.76, z: 0}
+  m_LocalPosition: {x: 0.942, y: -0.756, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
