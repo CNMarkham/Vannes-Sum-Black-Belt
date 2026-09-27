@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        roll = GetComponent<Animator>();
+        //roll = GetComponent<Animator>();
         bottomRight = corners[1];
         bottomLeft = corners[0];
     }
@@ -65,11 +65,6 @@ public class PlayerMove : MonoBehaviour
         {
             rb.AddForce(Vector2.up * pushForce, ForceMode2D.Impulse);
         }
-
-        //if (collision.gameObject.tag == ("Gravity Pad"))
-        //{
-        //    rb.AddForce(Vector2.up * filpForce, ForceMode2D.Impuls;
-        //}
     }
 
     
