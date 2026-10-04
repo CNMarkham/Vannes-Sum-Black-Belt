@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Bounce Pad
+  - Lava
   layers:
   - Default
   - TransparentFX

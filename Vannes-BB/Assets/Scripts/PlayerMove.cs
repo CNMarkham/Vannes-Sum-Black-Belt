@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -59,6 +60,14 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == ("Lava"))
+        {
+            Invoke("ResetScene", 3f);
+            gameObject.SetActive(false);
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Bounce Pad"))
@@ -66,6 +75,10 @@ public class PlayerMove : MonoBehaviour
             rb.AddForce(Vector2.up * pushForce, ForceMode2D.Impulse);
         }
     }
-
+    
+    private void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     
 }
