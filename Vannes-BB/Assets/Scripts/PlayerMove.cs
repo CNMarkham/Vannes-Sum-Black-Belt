@@ -72,6 +72,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bounce Pad"))
         {
+            Animator bouncePadAnimator = collision.gameObject.GetComponent<Animator>();
+            bouncePadAnimator.SetTrigger("bounce");
             rb.AddForce(Vector2.up * pushForce, ForceMode2D.Impulse);
         }
     }
