@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour
         //roll = GetComponent<Animator>();
         bottomRight = corners[1];
         bottomLeft = corners[0];
+
+
     }
 
     // Update is called once per frame
