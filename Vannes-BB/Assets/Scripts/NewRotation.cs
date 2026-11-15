@@ -52,6 +52,7 @@ public class NewRotation : MonoBehaviour
             Physics2D.Raycast(transform.position, -transform.right, groundCheckDistance, groundLayer) ||
             Physics2D.Raycast(transform.position, transform.right, groundCheckDistance, groundLayer))
         {
+            Debug.Log("rayhit");
             Roll();
         }
         else
@@ -71,6 +72,32 @@ public class NewRotation : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // 1. Save the original Gizmos matrix
+        Matrix4x4 originalMatrix = Gizmos.matrix;
+
+        // 2. Create a new matrix that includes position and rotation (z-axis only for 2D)
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(
+            transform.position,
+            Quaternion.Euler(0, 0, transform.eulerAngles.z),
+            Vector3.one
+        );
+
+        // 3. Apply the matrix to Gizmos
+        Gizmos.matrix = rotationMatrix;
+
+        // 4. Set your desired color
+        Gizmos.color = Color.green;
+
+        // 5. Draw the box at Vector3.zero because the matrix handles the position/rotation
+        // Note: OverlapBox takes a Vector2 for size, but Gizmos.DrawWireCube requires a Vector3
+        Gizmos.DrawWireCube(Vector3.zero, new Vector3(overlapBoxSize.x, overlapBoxSize.y, 0));
+
+        // 6. Restore the original matrix so it doesn't mess up other gizmos
+        Gizmos.matrix = originalMatrix;
     }
 
     private void Roll()

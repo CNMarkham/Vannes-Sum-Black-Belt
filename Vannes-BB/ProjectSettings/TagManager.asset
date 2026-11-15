@@ -7,6 +7,9 @@ TagManager:
   - Water
   - Bounce Pad
   - Lava
+  - Key
+  - Door
+  - Ground
   layers:
   - Default
   - TransparentFX
