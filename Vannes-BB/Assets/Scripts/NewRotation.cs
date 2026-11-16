@@ -37,6 +37,8 @@ public class NewRotation : MonoBehaviour
 
     void Update()
     {
+
+
         // Add a small hop option to help get out of pools of water
         if (Input.GetKeyDown(KeyCode.Space)){
             rb.AddForce(Vector3.up * 10);
@@ -47,33 +49,29 @@ public class NewRotation : MonoBehaviour
         if (moveCooldown < .5f) return;
 
         // Cast a ray from each side of our square and see if any touches the floor
-        if (Physics2D.Raycast(transform.position, transform.up, groundCheckDistance, groundLayer) ||
-            Physics2D.Raycast(transform.position, -transform.up, groundCheckDistance, groundLayer) ||
-            Physics2D.Raycast(transform.position, -transform.right, groundCheckDistance, groundLayer) ||
-            Physics2D.Raycast(transform.position, transform.right, groundCheckDistance, groundLayer))
+        if (Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer))
         {
-            Debug.Log("rayhit");
             Roll();
         }
         else
         {
             // In case we get caught in an area where only the corners are touching something, this checks around the entire box
-            if (Physics2D.OverlapBox(transform.position, overlapBoxSize, transform.eulerAngles.z, groundLayer))
+            /*if (Physics2D.OverlapBox(transform.position, overlapBoxSize, transform.eulerAngles.z, groundLayer))
             {
-                Roll();
+                //Roll();
             }
             else
-            {
+            {*/
                 // When we are not on land, we expect to move perfectly horizontal (i.e. in water)
                 float horizontal = Input.GetAxis("Horizontal");
                 rb.AddForce(Vector2.right * horizontal * 50);
                 moveCooldown = 0;
                 Debug.Log("No ground to roll off");
                 return;
-            }
+            //}
         }
     }
-
+    /* Uncomment out this code to see a visual representation of the above OverlapBox
     private void OnDrawGizmos()
     {
         // 1. Save the original Gizmos matrix
@@ -98,8 +96,7 @@ public class NewRotation : MonoBehaviour
 
         // 6. Restore the original matrix so it doesn't mess up other gizmos
         Gizmos.matrix = originalMatrix;
-    }
-
+    }*/
     private void Roll()
     {
         // Moving via WASD or Arrow Keys
