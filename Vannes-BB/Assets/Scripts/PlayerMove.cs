@@ -15,6 +15,9 @@ public class PlayerMove : MonoBehaviour
     public int cornerCounter;
     public bool rotating;
     public Animator roll;
+    public GameObject jetpackOff;
+    public GameObject jetpackOn;
+    public float fuel;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,13 @@ public class PlayerMove : MonoBehaviour
             roll.SetBool("Left", false);
             rotating = false;
         }
+
+        if ((jetpackOn.activeInHierarchy == true || jetpackOff.activeInHierarchy == true) && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)))
+        {
+            jetpackOff.SetActive(false);
+            jetpackOn.SetActive(true);
+            rb.AddForce(transform.up * 10);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -83,6 +93,12 @@ public class PlayerMove : MonoBehaviour
     private void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void EquipJetpack()
+    {
+        jetpackOff.SetActive(true);
+        fuel = 100f;
     }
     
 }
